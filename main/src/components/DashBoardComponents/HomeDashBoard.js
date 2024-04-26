@@ -32,7 +32,7 @@ const HomeDashBoard = ({ user, isUpdate, isDisplay, setIsDisplay }) => {
     const fetchTaskDetails = async () => {
       try {
         const response = await axios.post(
-          "http://localhost:5000/api/v1/fetchTask",
+          process.env.REACT_APP_BASE_URL + "/api/v1/fetchTask",
           { tasks: taskIdArray }
         );
         if (response && response.data && response.data.data) {
@@ -58,7 +58,7 @@ const HomeDashBoard = ({ user, isUpdate, isDisplay, setIsDisplay }) => {
     const fetchProjectDetails = async () => {
       try {
         const response = await axios.post(
-          "http://localhost:5000/api/v1/fetchProject",
+          process.env.REACT_APP_BASE_URL + "/api/v1/fetchProject",
           { projectArray: projectIdArray }
         );
         if (response && response.data && response.data.data) {

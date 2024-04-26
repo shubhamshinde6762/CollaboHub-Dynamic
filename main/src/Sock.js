@@ -19,7 +19,7 @@ const Sock = ({
         const token = localStorage.getItem("token");
         console.log(token);
         const response = await axios.get(
-          "http://localhost:5000/api/v1/login",
+          process.env.REACT_APP_BASE_URL + "/api/v1/login",
           {
             headers: {
               Authorization: `${token}`,
@@ -37,7 +37,7 @@ const Sock = ({
           localStorage.clear();
           navigate("/");
         }
-        console.log(response)
+        console.log(response);
       } catch (error) {
         console.error("Axios request error:", error);
         localStorage.clear();
@@ -48,7 +48,6 @@ const Sock = ({
     autoLogin();
   }, []);
 
-  
   useEffect(() => {
     try {
       const needToUpdateProject = (data) => {

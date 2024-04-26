@@ -95,7 +95,7 @@ const EditProfile = ({ user, editProfile, setEditProfile }) => {
         toast.promise(
           axios
             .post(
-              "http://localhost:5000/api/v1/updateUser",
+              process.env.REACT_APP_BASE_URL + "/api/v1/updateUser",
               formData,
               {
                 headers: {

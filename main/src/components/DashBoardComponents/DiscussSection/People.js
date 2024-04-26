@@ -17,7 +17,7 @@ const People = ({
     const fetch = async () => {
       try {
         const latestUserData = await axios.post(
-          "http://localhost:5000/api/v1/fetchUser",
+          process.env.REACT_APP_BASE_URL + "/api/v1/fetchUser",
           {
             userArray: [user.data._id],
           }
@@ -30,7 +30,7 @@ const People = ({
           ...latestUserData.data.data[0].chatPerson,
         ];
         let response = await axios.post(
-          "http://localhost:5000/api/v1/fetchChat",
+          process.env.REACT_APP_BASE_URL + "/api/v1/fetchChat",
           {
             chatId,
             userId: user.data._id,
@@ -92,7 +92,7 @@ const People = ({
         console.log("mssg", newMessage);
         const chatId = [newMessage.newMessage.chatId];
         const response = await axios.post(
-          "http://localhost:5000/api/v1/fetchChat",
+          process.env.REACT_APP_BASE_URL + "/api/v1/fetchChat",
           {
             chatId,
             userId: user.data._id,

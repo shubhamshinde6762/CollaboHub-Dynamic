@@ -30,7 +30,7 @@ const Chat = ({ user, chat, newMessage, setChatSection,setIsLoading }) => {
     const fetchMessages = async () => {
       try {
         const response = await axios.post(
-          "http://localhost:5000/api/v1/fetchMessages",
+          process.env.REACT_APP_BASE_URL + "/api/v1/fetchMessages",
           {
             userId: user.data._id,
             chatId: chat._id,
@@ -144,7 +144,7 @@ const Chat = ({ user, chat, newMessage, setChatSection,setIsLoading }) => {
       let person2 = null;
       if (!chat._id) person2 = chat.user;
       const response = await axios.post(
-        "http://localhost:5000/api/v1/sendMessage",
+        process.env.REACT_APP_BASE_URL + "/api/v1/sendMessage",
         {
           textMessage,
           chatId: chat._id,

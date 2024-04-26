@@ -15,7 +15,7 @@ const Notification = (props) => {
     try {
       console.log(props.user.data.email);
       const response = await axios.post(
-        "http://localhost:5000/api/v1/getInvitedProjects",
+        process.env.REACT_APP_BASE_URL + "/api/v1/getInvitedProjects",
         {
           email: props.user.data.email,
         }

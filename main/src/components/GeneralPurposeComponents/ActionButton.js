@@ -63,7 +63,7 @@ const ActionButton = ({ user, updateStatus, isOpen, setIsOpen }) => {
     try {
       console.log(user);
       const response = await axios.post(
-        "http://localhost:5000/api/v1/getProjects",
+        process.env.REACT_APP_BASE_URL + "/api/v1/getProjects",
         {
           email: user.data.email,
         }
@@ -110,7 +110,7 @@ const ActionButton = ({ user, updateStatus, isOpen, setIsOpen }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/v1/createProject",
+        process.env.REACT_APP_BASE_URL + "/api/v1/createProject",
         {
           projectName: projectName,
           email: user.data.email,

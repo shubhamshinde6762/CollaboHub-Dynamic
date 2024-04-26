@@ -44,7 +44,7 @@ const AddTaskForm = (props) => {
       } else {
         // Use toast.promise for asynchronous operation
         await toast.promise(
-          axios.post("http://localhost:5000/api/v1/createTask", {
+          axios.post(process.env.REACT_APP_BASE_URL + "/api/v1/createTask", {
             taskName: projectFormData.task,
             dueDate: projectFormData.dueDate,
             contributorsId: projectFormData.contributorsId,

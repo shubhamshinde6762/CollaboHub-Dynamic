@@ -44,7 +44,7 @@ const Search = ({
     event.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/v1/invite",
+        process.env.REACT_APP_BASE_URL + "/api/v1/invite",
         {
           email: inviteText,
           projectId,

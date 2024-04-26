@@ -20,7 +20,7 @@ const CreateGroupContacts = ({ user, setCreateGroup }) => {
   const createHandler = async () => {
    
     const response = await axios.post(
-      "http://localhost:5000/api/v1/createGroup",
+      process.env.REACT_APP_BASE_URL + "/api/v1/createGroup",
       {
         userId: user.data._id,
         profilePhoto: selectedFile,
@@ -42,7 +42,7 @@ const CreateGroupContacts = ({ user, setCreateGroup }) => {
         let userArray = new Set();
 
         const fetchAllProjects = await axios.post(
-          "http://localhost:5000/api/v1/fetchProject",
+          process.env.REACT_APP_BASE_URL + "/api/v1/fetchProject",
           { projectArray: user.data.projectIds }
         );
 
@@ -55,7 +55,7 @@ const CreateGroupContacts = ({ user, setCreateGroup }) => {
         userArray.delete(user.data._id);
 
         const response = await axios.post(
-          "http://localhost:5000/api/v1/fetchUser",
+          process.env.REACT_APP_BASE_URL + "/api/v1/fetchUser",
           { userArray: Array.from(userArray) }
         );
 

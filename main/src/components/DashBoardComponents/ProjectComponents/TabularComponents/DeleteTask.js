@@ -9,7 +9,7 @@ const DeleteTask = ({task,user,deletePage,setDeletePage}) => {
   const deleteTask = async() =>{
     try{
       const response = await axios.post(
-        "http://localhost:5000/api/v1/deleteTask",
+        process.env.REACT_APP_BASE_URL + "/api/v1/deleteTask",
         {
           projectId : task.projectId,
           taskId : task._id,

@@ -30,7 +30,7 @@ import ActionButton from "./components/GeneralPurposeComponents/ActionButton";
 import About from "./components/About/About";
 
 import io from "socket.io-client";
-const socket = io("http://localhost:5000/");
+const socket = io(process.env.REACT_APP_BASE_URL + "/");
 
 function App() {
   const [isIntroEnded, setIntroEnded] = useState(false);
